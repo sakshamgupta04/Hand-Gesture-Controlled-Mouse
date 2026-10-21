@@ -42,6 +42,15 @@ def euclidean_distance(p1: Any, p2: Any) -> float:
     return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2 + (z1 - z2) ** 2)
 
 
+def euclidean_distance_2d(p1: Any, p2: Any) -> float:
+    """Fast 2D Euclidean distance ignoring Z-axis (avoids noisy depth estimates)."""
+    x1, y1 = _extract_xy(p1)
+    x2, y2 = _extract_xy(p2)
+    dx = x1 - x2
+    dy = y1 - y2
+    return math.sqrt(dx * dx + dy * dy)
+
+
 def calculate_angle(a: Any, b: Any, c: Any) -> float:
     """
     Calculates angle at vertex b between vectors ba and bc in degrees (0 to 180).
@@ -91,17 +100,28 @@ def map_to_screen(landmark_x: float, landmark_y: float,
                   active_region: dict, screen_w: int, screen_h: int) -> Tuple[float, float]:
     """
     Maps normalized camera landmark (0.0 to 1.0) into screen pixel coordinates
-    using the active region bounding box.
+    using the active region bounding box. Pure Python for minimal overhead.
     """
     left = active_region.get("left", 0.15)
     right = active_region.get("right", 0.85)
     top = active_region.get("top", 0.15)
     bottom = active_region.get("bottom", 0.85)
 
-    screen_x = np.interp(landmark_x, [left, right], [0, screen_w])
-    screen_y = np.interp(landmark_y, [top, bottom], [0, screen_h])
+    # Linear interpolation (replaces np.interp for scalar values)
+    range_x = right - left
+    range_y = bottom - top
+    if range_x > 0:
+        screen_x = ((landmark_x - left) / range_x) * screen_w
+    else:
+        screen_x = screen_w * 0.5
+    if range_y > 0:
+        screen_y = ((landmark_y - top) / range_y) * screen_h
+    else:
+        screen_y = screen_h * 0.5
 
-    screen_x = float(np.clip(screen_x, 3, screen_w - 4))
-    screen_y = float(np.clip(screen_y, 3, screen_h - 4))
+    # Clamp to screen bounds (replaces np.clip for scalar values)
+    screen_x = max(3.0, min(float(screen_w - 4), screen_x))
+    screen_y = max(3.0, min(float(screen_h - 4), screen_y))
 
     return screen_x, screen_y
+

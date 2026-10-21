@@ -24,8 +24,8 @@
     "smoothing_type": "one_euro",
     "smoothing_factor": 5,
     "one_euro": {
-      "min_cutoff": 1.0,
-      "beta": 0.007,
+      "min_cutoff": 1.7,
+      "beta": 0.05,
       "d_cutoff": 1.0
     },
     "pointer_landmark": 8
@@ -35,10 +35,10 @@
     "pinch_off_threshold": 0.080,
     "pinch_norm_on": 0.18,
     "pinch_norm_off": 0.25,
-    "scroll_sensitivity": 5,
-    "click_cooldown_ms": 250,
-    "consecutive_frames_required": 2,
-    "drag_hold_frames": 8,
+    "scroll_sensitivity": 8,
+    "click_cooldown_ms": 160,
+    "consecutive_frames_required": 1,
+    "drag_hold_frames": 6,
     "fist_threshold": 0.15,
     "open_palm_threshold": 0.25
   },

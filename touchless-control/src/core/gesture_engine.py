@@ -3,7 +3,7 @@
 import time
 import math
 from typing import List, Optional, Tuple, Dict, Any
-from src.utils.geometry import euclidean_distance, Point
+from src.utils.geometry import euclidean_distance, euclidean_distance_2d, Point
 from src.core.hand_tracker import (
     WRIST, THUMB_TIP, INDEX_TIP, MIDDLE_TIP, RING_TIP, PINKY_TIP,
     INDEX_MCP, MIDDLE_MCP, RING_MCP, PINKY_MCP,
@@ -48,12 +48,12 @@ class GestureEngine:
         # Swipe & Motion tracking
         self.wrist_history = []  # List of (timestamp, x, y)
         self.last_swipe_time = 0.0
-        self.swipe_cooldown_ms = 450.0
+        self.swipe_cooldown_ms = 300.0
 
         # Zoom tracking
         self.prev_zoom_y = None
         self.last_zoom_time = 0.0
-        self.zoom_cooldown_ms = 220.0
+        self.zoom_cooldown_ms = 150.0
 
         # Open palm hold tracking (prevents accidental pause when hand enters frame)
         self.open_palm_start_time = None
@@ -164,9 +164,9 @@ class GestureEngine:
             if dt > 0.03:
                 vx = dx / dt
 
-        # Raw Euclidean distances in camera space
-        raw_thumb_index = euclidean_distance(landmarks[THUMB_TIP], landmarks[INDEX_TIP])
-        raw_thumb_middle = euclidean_distance(landmarks[THUMB_TIP], landmarks[MIDDLE_TIP])
+        # Raw Euclidean distances in camera space (2D only — Z is noisy)
+        raw_thumb_index = euclidean_distance_2d(landmarks[THUMB_TIP], landmarks[INDEX_TIP])
+        raw_thumb_middle = euclidean_distance_2d(landmarks[THUMB_TIP], landmarks[MIDDLE_TIP])
 
         # Hand-scale normalized distances
         norm_thumb_index = raw_thumb_index / hand_size
@@ -294,7 +294,7 @@ class GestureEngine:
             if self.prev_scroll_y is not None:
                 delta_y = (self.prev_scroll_y - curr_y)
                 # Apply dead-zone to ignore micro-tremors
-                if abs(delta_y) > 0.003:
+                if abs(delta_y) > 0.002:
                     meta["scroll_delta"] = delta_y
             self.prev_scroll_y = curr_y
             return "index_middle_up", meta

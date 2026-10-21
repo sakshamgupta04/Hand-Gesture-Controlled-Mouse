@@ -328,8 +328,9 @@ def main():
     action_banner_expire = 0.0
     ripples = []
     scroll_accumulator = 0.0
-    scroll_sensitivity = float(config.get("gestures.scroll_sensitivity", 5))
+    scroll_sensitivity = float(config.get("gestures.scroll_sensitivity", 8))
     last_pause_time = 0.0
+    skip_n = config.get("camera.process_every_n_frames", 1)
 
     try:
         while True:
@@ -338,8 +339,7 @@ def main():
                 continue
 
             frame_count += 1
-            skip_n = config.get("camera.process_every_n_frames", 1)
-            if frame_count % skip_n != 0:
+            if skip_n > 1 and frame_count % skip_n != 0:
                 continue
 
             timestamp_ms = int(time.monotonic() * 1000)

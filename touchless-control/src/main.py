@@ -315,6 +315,7 @@ def main():
 
     window_title = "Touchless Computer Control"
     cv2.namedWindow(window_title, cv2.WINDOW_AUTOSIZE)
+    cv2.setWindowProperty(window_title, cv2.WND_PROP_TOPMOST, 1)
     logger.info("Camera & tracking loop running. Focus live preview window.")
 
     # State variables

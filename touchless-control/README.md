@@ -28,7 +28,7 @@
 
 ```bash
 # Clone the repository
-git clone <repo-url>
+git clone https://github.com/sakshamgupta04/Hand-Gesture-Controlled-Mouse.git
 cd touchless-control
 
 # Create virtual environment
@@ -107,3 +107,8 @@ Everything runs **100% locally**. No data is sent to any server. No video is rec
 ## License
 
 This project uses open-source tools. See [THIRD_PARTY_LICENSES](THIRD_PARTY_LICENSES) for details.
+
+
+## Author
+
+Developed and maintained by [Saksham Gupta](https://github.com/sakshamgupta04).

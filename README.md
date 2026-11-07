@@ -22,6 +22,15 @@ Traditional Human-Computer Interaction (HCI) relies entirely on mechanical input
 
 ---
 
+## 🎓 Academic Project Submissions (Minor & Major)
+
+This repository is structured for university engineering project evaluations:
+
+- 📘 **[Complete Minor-to-Major Project Blueprint](MINOR_TO_MAJOR_TRANSITION_BLUEPRINT.md)**: Master transition document detailing the Minor Project implementation, mathematical proofs, viva defense script & Q&A, and the 5-pillar roadmap (Multimodal Eye-Gaze Fusion, Bi-LSTM Classifier, ISO 9241-9 Fitts' Law Suite, Glassmorphic GUI, and Air-Keyboard) for the Final Year Major Capstone.
+- 📑 **[Academic Project Report & Synopsis Dossier](PROJECT_REPORT_AND_SYNOPSIS.md)**: 500+ line academic dossier including slide-by-slide PPT blueprints, medical PACS specifications, and evaluation metrics.
+
+---
+
 ## 🧠 4-Stage Multi-Model Machine Learning Ensemble
 
 ```
@@ -187,6 +196,7 @@ Hand-Gesture-Controlled-Mouse/
 │   ├── tests/                    # 18 automated unit tests (pytest)
 │   └── requirements.txt          # Python dependencies
 ├── PROJECT_REPORT_AND_SYNOPSIS.md# Academic report, thesis synopsis & defense dossier
+├── MINOR_TO_MAJOR_TRANSITION_BLUEPRINT.md # Master academic transition roadmap
 ├── run.bat                       # 1-Click native Windows launcher
 ├── start_evaluation_demo.bat     # 1-Click web evaluation studio launcher
 └── README.md                     # Project documentation
@@ -205,3 +215,4 @@ Hand-Gesture-Controlled-Mouse/
 ## 📄 License
 
 This project is licensed under the Apache 2.0 License. See [LICENSE](touchless-control/THIRD_PARTY_LICENSES) for third-party open-source components.
+

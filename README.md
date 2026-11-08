@@ -27,6 +27,7 @@ Traditional Human-Computer Interaction (HCI) relies entirely on mechanical input
 This repository is structured for university engineering project evaluations:
 
 - 📘 **[Complete Minor-to-Major Project Blueprint](MINOR_TO_MAJOR_TRANSITION_BLUEPRINT.md)**: Master transition document detailing the Minor Project implementation, mathematical proofs, viva defense script & Q&A, and the 5-pillar roadmap (Multimodal Eye-Gaze Fusion, Bi-LSTM Classifier, ISO 9241-9 Fitts' Law Suite, Glassmorphic GUI, and Air-Keyboard) for the Final Year Major Capstone.
+- 🚀 **[Next-Gen Innovations & Research Dossier](NEXT_GEN_INNOVATIONS_AND_RESEARCH_DOSSIER.md)**: Advanced spatial computing specification covering In-Air Glass Canvas ("Air Canvas"), Acoustic Haptic Feedback, $1 Unistroke Spatial Macros, 10-Second Bio-Calibration, Voice+Vision Co-Pilot, 6-DOF 3D Bimanual Manipulation, and Zero-Software USB Hardware HID Dongles.
 - 📑 **[Academic Project Report & Synopsis Dossier](PROJECT_REPORT_AND_SYNOPSIS.md)**: 500+ line academic dossier including slide-by-slide PPT blueprints, medical PACS specifications, and evaluation metrics.
 
 ---
@@ -197,6 +198,7 @@ Hand-Gesture-Controlled-Mouse/
 │   └── requirements.txt          # Python dependencies
 ├── PROJECT_REPORT_AND_SYNOPSIS.md# Academic report, thesis synopsis & defense dossier
 ├── MINOR_TO_MAJOR_TRANSITION_BLUEPRINT.md # Master academic transition roadmap
+├── NEXT_GEN_INNOVATIONS_AND_RESEARCH_DOSSIER.md # Advanced R&D and next-gen innovations
 ├── run.bat                       # 1-Click native Windows launcher
 ├── start_evaluation_demo.bat     # 1-Click web evaluation studio launcher
 └── README.md                     # Project documentation

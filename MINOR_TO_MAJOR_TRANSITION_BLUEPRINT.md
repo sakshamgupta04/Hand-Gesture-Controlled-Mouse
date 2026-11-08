@@ -483,3 +483,4 @@ To maintain an industry-standard git workflow on:
 1. Submit this document and the passing test suite to your college Minor Project committee.
 2. Execute the 5-minute live demo script during your viva.
 3. Seamlessly initiate Sprint 1 of the Major Project roadmap on this same repository.
+

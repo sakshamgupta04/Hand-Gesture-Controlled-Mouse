@@ -19,3 +19,4 @@ def test_audio_engine_methods_do_not_throw():
     engine.play_click()
     engine.play_release()
     engine.play_mode_switch()
+

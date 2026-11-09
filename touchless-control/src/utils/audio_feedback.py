@@ -74,3 +74,4 @@ class AudioFeedbackEngine:
 
 # Global singleton instance for easy import across modules
 audio_engine = AudioFeedbackEngine(enabled=False)  # Default off until enabled in config
+
